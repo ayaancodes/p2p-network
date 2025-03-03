@@ -1,21 +1,30 @@
 // Some code need to be added here, that are common for the module
 
-
+//Initiailize the timer with a random value between 1 and 999
+let timer = Math.floor(Math.random() * 999) + 1
 
 module.exports = {
+    /*
+    Initialize the server timer
+    This function starts a timer that increments every 10 milliseconds
+    The timer resets after reaching 2^32 to prevent overflow
+     */
     init: function () {
-    
-
-
+        //Set interval repeatdely calls a function with a fixed time delay between each call 
+        setInterval(() => {
+            timer = (timer + 1) % Math.pow(2, 32);; //32-bit timer
+        }, 10 //delay
+        );
     },
 
-    //--------------------------
-    //getSequenceNumber: return the current sequence number + 1
-    //--------------------------
+    /*--------------------------
+    *Generate the next sequence number. 
+    * This is a 26-bit value that increments for every response sent. 
+    * It resets after reaching 2^26
+    * @returns {number} - The next sequenece number. 
+    //--------------------------*/
     getSequenceNumber: function () {
-
-
-
+        return (timer+1) % Math.pow(2, 26) 
     },
 
     //--------------------------
@@ -26,4 +35,3 @@ module.exports = {
     }
 }
 
-    
