@@ -1,4 +1,7 @@
-// Some code need to be added here, that are common for the module
+//This file basically maintains a global state timer for the entire application 
+// Sends sequence numbers for packet responses to the client
+
+
 
 //Initiailize the timer with a random value between 1 and 999
 let timer = Math.floor(Math.random() * 999) + 1
